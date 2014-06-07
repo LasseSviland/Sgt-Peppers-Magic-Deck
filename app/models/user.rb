@@ -1,13 +1,11 @@
 class User < ActiveRecord::Base
   validates :username, uniqueness: true
 
-  def self.authenticate(username, password)
-    @user = self.find_by(username: username)
-    if @user && @user.password == password
-      return @user
-    else
-      return nil
-    end
+  def password=(plaintext)
+    self.password_hash = BCrypt::Password.create(plaintext)
   end
 
+  def authenticate(plaintext_password)
+    BCrypt::Password.new(self.password_hash) == plaintext_password
+  end
 end

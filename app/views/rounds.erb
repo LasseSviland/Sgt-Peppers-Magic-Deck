@@ -1,3 +1,4 @@
+<div class="rounds">
 <% if @unfinished_rounds.length == 0  %>
   <a href="/round/<%=@deck.id%>/new" >New game!</a>
 <% else %>
@@ -7,6 +8,7 @@
 <% if @finished_rounds.length != 0  %>
 <h3>Old games:</h3>
 <% @finished_rounds.each_with_index do |round,index|%>
-  <%= index+1 %>) You guessed all the <%=Guess.where(round:round).length%> questions with <%= Guess.where(round:round).sum('tries')%> tries.</br>
+  <%= index+1 %>) You guessed all the <%=Guess.where(round: round).length%> questions with <%= Guess.where(round:round).sum('tries')%> tries.</br>
 <% end %>
 <% end %>
+</div>

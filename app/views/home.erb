@@ -1,5 +1,7 @@
 <div class="game">
+  <ul>
 	<% @decks.each do |deck| %>
-	<a href="/round/<%= deck.id %>/rounds"><%= deck.name %></a>
+	<li><a href="/round/<%= deck.id %>/rounds"><%= deck.name %></a></li>
 	<% end %>
+  </ul>
 </div>

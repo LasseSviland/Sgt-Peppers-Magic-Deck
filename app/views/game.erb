@@ -1,6 +1,7 @@
- 	<p><%= @guess.card.question %></p>
+ 	<p id="question"><%= @guess.card.question %></p>
  <form action="/round/<%= @round.id %>" method="post">
  	<input type="hidden" name="card_id" value=<%=@guess.card.id%> />
  	<input type="text" name="guess" placeholder="Answer">
 	<input type="submit" value="Answer">
  </form>
+<p id="status"><%=Guess.where(round: @round, guessed: true).length%>   /   <%= Guess.where(round: @round).length %></p>

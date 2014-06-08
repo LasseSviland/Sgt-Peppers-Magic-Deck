@@ -47,32 +47,97 @@ h1 {
 
 }
 .login form input {
-display: block;
-width: 50%;
-margin: 5px auto;
-text-align: center;
+	display: block;
+	width: 50%;
+	margin: 5px auto;
+	text-align: center;
 }
 .login form input[type="submit"] {
-margin-top: 20px;
+	margin-top: 20px;
 }
 .register form input {
-display: block;
-width: 50%;
-margin: 5px auto;
-text-align: center;
+	display: block;
+	width: 50%;
+	margin: 5px auto;
+	text-align: center;
 }
 .register form input[type="submit"] {
-margin-top: 20px;
+	margin-top: 20px;
 }
 .footer {
 	background: #A63800;
 	text-align: center;
 }
 .content {
-	background: #BF6030;
+	background: #0000CC;
 	border-radius:25px;
 	padding: 10px;
 	text-align: center;
+}
+.game a {
+	text-decoration: none;
+	color: black;
+	text-align: center;
+}
+#question {
+	color: yellow;
+	font-weight: bold;
+}
+.game ul {
+	padding: 0;
+}
+.rounds {
+	color:yellow;
+	font-weight: bold;
+}
+.rounds a {
+	text-decoration: none;
+	color:black;
+	font-weight: bold;
+	margin: 5px auto;
+	text-decoration: none;
+	padding: 5px;
+	border:5px solid;
+	border-radius:50px;
+	animation:rainbow_background 10s infinite;
+	-moz-animation:rainbow_background 10s infinite;
+	-webkit-animation:rainbow_background 10s infinite;
+}
+.rounds {
+	margin-bottom: 25px;
+
+}
+.game li {
+	display: block;
+	text-align: center;
+	width: 25%;
+	margin: 5px auto;
+	text-decoration: none;
+	padding: 5px;
+	border:5px solid;
+	border-radius:50px;
+	animation:rainbow_background 10s infinite;
+	-moz-animation:rainbow_background 10s infinite;
+	-webkit-animation:rainbow_background 10s infinite;
+}
+#wrong_guess {
+	color: red;
+	font-weight: bold;
+}
+#right_guess {
+	color: #00FF00;
+	font-weight: bold;
+}
+#answer {
+	color: yellow;
+	font-weight: bold;
+}
+#status {
+		display: block;
+	width: 25%;
+	color: yellow;
+		margin: 5px auto;
+	font-weight: bold;
 }
 .rainbow_text {
 	position:relative;

@@ -1,8 +1,9 @@
 <% if @guess.guessed%>
-	<p id="right_guess">You guessed correct! The answer was <%= @guess.card.answer %></p>
+	<p id="right_guess">You guessed correct! The answer was <span id="answer"><%= @guess.card.answer %></span></p>
 <% else %>
-	<p id="wrong_guess">You guessed Wrong! The answer was  <%= @guess.card.answer %></p>
+	<p id="wrong_guess">You guessed Wrong! The answer was  <span id="answer"><%= @guess.card.answer %></span></p>
 <% end %>
 <form action="/round/<%=@round.id%>" method="get">
 	<input type="submit" value="Continue">
 </form>
+<p id="status"><%=Guess.where(round: @round, guessed: true).length%>   /   <%= Guess.where(round: @round).length %></p>

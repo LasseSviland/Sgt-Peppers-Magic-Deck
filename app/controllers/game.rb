@@ -22,7 +22,7 @@ get '/round/:deck_id/new/?' do
 	else
 		deck = Deck.find_by(id: params[:deck_id])
 		user = current_user
-		card = Card.where(deck: deck).sample(2)
+		card = Card.where(deck: deck).sample(10)
 		round = Round.create(deck: deck, user:user)
 		card.each do |ca|
 			Guess.create(round:round, card:ca, guessed: false)
@@ -30,7 +30,6 @@ get '/round/:deck_id/new/?' do
 		redirect "/round/#{round.id}"
 	end
 end
-
 
 
 get '/round/:round_id/?' do
@@ -68,15 +67,3 @@ post '/round/:round_id/?' do
 		redirect "/round/#{@round.id}"
 	end
 end
-
-
-#
-#	@round = Round.find_by(deck:params[:deck_id], user:current_user)
-#	if @round.finished
-#		return erb :"round_stats"
-#	else
-#		@guesses = Guess.where(round: params[:round_id], guessed: false).order('tries ASC')
-#		@guess_count = Guess.where(round: params[:round_id]).length
-#		erb :game
-#	end
-#end

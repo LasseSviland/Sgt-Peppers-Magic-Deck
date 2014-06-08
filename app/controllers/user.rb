@@ -1,11 +1,15 @@
-get '/login' do
+get '/login/?' do
+  @title="login"
+  @header="Login"
   if current_user
     return redirect '/'
   end
   erb :login
 end
 
-post '/login' do
+post '/login/?' do
+  @title="login"
+  @header="Login"
   username = params[:username]
   password = params[:password]
   @user = User.authenticate(username, password)
@@ -19,13 +23,17 @@ post '/login' do
 
 end
 
-get '/register' do
+get '/register/?' do
+  @title="register"
+  @header="register"
   erb :register
 end
-post '/register' do
-  username = params[:username]
+post '/register/?' do
+  @title="register"
+  @header="register"
+  username = params[:username].downcase
   password = params[:password]
-  @user = User.new(username: username,password: password)
+  @user = User.new(username: username,password_hash: password)
   if @user.save
     session[:user_id] = @user.username
     return redirect '/'
@@ -35,12 +43,26 @@ post '/register' do
   end
 end
 
-get '/logout' do
+get '/logout/?' do
+  @title="logout"
+  @header="logout"
   session.clear
   redirect '/login'
 end
 
 
 get '/' do
+  @title="Play"
+  @header="Play"
   erb :home
+end
+get '/profile/?' do
+  @title="profile"
+  @header="profile"
+  erb :profile
+end
+get '/stats/?' do
+  @title="stats"
+  @header="stats"
+  erb :stats
 end

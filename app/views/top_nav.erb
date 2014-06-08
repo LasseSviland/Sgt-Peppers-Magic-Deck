@@ -1,0 +1,16 @@
+<% if logged_in? %>
+	<ul id="nav_items">
+		<li class="nav_item"><a href="/">New Game</a></li>
+		<li class="nav_item"><a href="/stats">Stats</a></li>
+	</ul>
+	<ul id="nav_user">
+		<li class="nav_user"><a id="logout" href="/logout">Log out</a></li>
+		<li class="nav_user"><a id="user" href="/profile"><%= current_user.username.capitalize %></a></li>
+	</ul>
+<% else %>
+	<ul id="nav_login">
+		<li><a class="nav_login" href="/login">Log In</a></li>
+		<li><a class="nav_login"href="/register">Register!</a></li>
+	</ul>
+<% end %>
+

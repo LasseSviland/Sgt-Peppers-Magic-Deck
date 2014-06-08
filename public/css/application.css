@@ -1,0 +1,100 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+	background: #FF8040;
+}
+.container {
+	background: #A63800;
+	width: 800px;
+	margin: 5px auto;
+	border-radius:25px;
+	padding: 15px;
+}
+.top_nav {
+	background: #A63800;
+	font-weight: bold;
+	position: relative;
+	margin-bottom: 25px;
+}
+.top_nav #nav_items 	{	position: relative;		left: 15px;	width: 34%;	}
+.top_nav #nav_user  	{ position: relative;		right: 15px; width: 65%; float: right; }
+.top_nav #nav_user li  	{ float: right;}
+.top_nav ul 					{ margin: 0;	padding: 0;	display: inline-block; }
+.top_nav ul li 				{	font-size: 16pt;	display: inline-block; margin: 10px; }
+.top_nav a 						{ text-decoration: none; 	color: #c0c0c0;		padding: 5px;}
+.top_nav a:visited 		{ border-left:5px double #c0c0c0; border-right:5px double #c0c0c0; }
+.top_nav a:link 			{ border-left:5px double #c0c0c0; border-right:5px double #c0c0c0; }
+.top_nav a:active 		{ border:5px double #FF8040; border-radius:50px; }
+.top_nav a:focus 			{ border:5px double #FF8040; border-radius:50px; }
+.top_nav a:hover 			{ border:5px double #FF8040; border-radius:50px; }
+input[type="password"]{ outline: 0; background: #A63800;	color: #99FF33;	padding: 5px;border:0; border-radius:50px;}
+input[type="text"] 		{ outline: 0; background: #A63800;	color: #99FF33;	padding: 5px;border:0; border-radius:50px;}
+
+input[type="submit"]				{ text-decoration: none; 	color: black;		padding: 5px;border:5px solid ; border-radius:50px;animation:rainbow_background 10s infinite; -moz-animation:rainbow_background 10s infinite; -webkit-animation:rainbow_background 10s infinite;}
+input[type="submit"]:hover 	{ border:5px double #FF8040; border-radius:50px; }
+h1 {
+	text-align: center;
+}
+.error {
+	display: block;
+	text-align: center;
+	color: yellow;
+	font-weight: bolder;
+
+}
+.login form input {
+display: block;
+width: 50%;
+margin: 5px auto;
+text-align: center;
+}
+.login form input[type="submit"] {
+margin-top: 20px;
+}
+.register form input {
+display: block;
+width: 50%;
+margin: 5px auto;
+text-align: center;
+}
+.register form input[type="submit"] {
+margin-top: 20px;
+}
+.footer {
+	background: #A63800;
+	text-align: center;
+}
+.content {
+	background: #BF6030;
+	border-radius:25px;
+	padding: 10px;
+	text-align: center;
+}
+.rainbow_text {
+	position:relative;
+	animation:rainbow_text 2s infinite;
+	-moz-animation:rainbow_text 2s infinite;
+	-webkit-animation:rainbow_text 2s infinite;
+}
+@-webkit-keyframes rainbow_text 	{ 0% {color:#FF0000;} 17% {color:#FF7F00;} 34% {color:#FFFF00;} 51% {color:#00FF00;} 65% {color:#0000FF;} 78% {color:#4B0082;} 90% {color:#8F00FF;} 100% {color:#FF0000;}}
+@-moz-keyframes rainbow_text 		{ 0% {color:#FF0000;} 17% {color:#FF7F00;} 34% {color:#FFFF00;} 51% {color:#00FF00;} 65% {color:#0000FF;} 78% {color:#4B0082;} 90% {color:#8F00FF;} 100% {color:#FF0000;}}
+@keyframes rainbow_text 					{ 0% {color:#FF0000;} 17% {color:#FF7F00;} 34% {color:#FFFF00;} 51% {color:#00FF00;} 65% {color:#0000FF;} 78% {color:#4B0082;} 90% {color:#8F00FF;} 100% {color:#FF0000;}}
+.rainbow_background {
+	position:relative;
+	animation:rainbow_background 200s infinite;
+	-moz-animation:rainbow_background 200s infinite;
+	-webkit-animation:rainbow_background 200s infinite;
+}
+@-webkit-keyframes rainbow_background 	{ 0% {background:#FF0000;} 17% {background:#FF7F00;} 34% {background:#FFFF00;} 51% {background:#00FF00;} 65% {background:#0000FF;} 78% {background:#4B0082;} 90% {background:#8F00FF;} 100% {background:#FF0000;}}
+@-moz-keyframes rainbow_background 			{ 0% {background:#FF0000;} 17% {background:#FF7F00;} 34% {background:#FFFF00;} 51% {background:#00FF00;} 65% {background:#0000FF;} 78% {background:#4B0082;} 90% {background:#8F00FF;} 100% {background:#FF0000;}}
+@keyframes rainbow_background 					{ 0% {background:#FF0000;} 17% {background:#FF7F00;} 34% {background:#FFFF00;} 51% {background:#00FF00;} 65% {background:#0000FF;} 78% {background:#4B0082;} 90% {background:#8F00FF;} 100% {background:#FF0000;}}
+
+
+/*#A63800*/
+/*#BF6030*/
+/*#FF5600*/
+/*#FF8040*/

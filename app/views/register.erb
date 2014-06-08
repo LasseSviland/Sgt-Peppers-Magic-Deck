@@ -1,6 +1,10 @@
 <div class="register">
   <% if @error_message %>
-  <%= @error_message %>
+  <% @error_message.each do |type, error| %>
+  <% error.each do |msg| %>
+  <%= "#{type.capitalize}  #{msg}" %>
+  <% end %>
+  <% end %>
   <% end %>
   <form action="/register" method="post">
     <input type="text" name="username" placeholder="Username">

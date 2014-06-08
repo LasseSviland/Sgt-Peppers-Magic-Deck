@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
-
-  <title><%= @title %></title>
-</head>
-<body>
-  <%= yield %>
-</body>
+  <head>
+    <!--
+      normalize.css removes cross-browser differences in defaults, e.g.,
+      differences in how form elements appear between Firefox and IE
+      See: http://necolas.github.com/normalize.css/
+    -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <!--
+      application.css is where you put your styles
+    -->
+    <link rel="stylesheet" href="/css/application.css">
+  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/js/application.js"></script>
+    
+    <title><%= @title.capitalize %></title>
+  </head>
+  <body class="rainbow_background">
+    <div class="container">
+      <div class="top_nav"><%= erb :top_nav %></div>
+      <div class="content"><h1 id="header"><%= @header.capitalize %></h1><%= yield %></div>
+      <div class="footer"><%= erb :footer %></div>
+    </div>
+  </body>
 </html>

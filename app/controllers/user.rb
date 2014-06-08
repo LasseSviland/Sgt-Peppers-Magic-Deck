@@ -51,11 +51,7 @@ get '/logout/?' do
 end
 
 
-get '/' do
-  @title="Play"
-  @header="Play"
-  erb :home
-end
+
 get '/profile/?' do
   @title="profile"
   @header="profile"

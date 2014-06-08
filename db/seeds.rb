@@ -4,5 +4,4 @@ File.readlines(beatles_file_path).each do |line|
   card = Card.new(question: entry[0], answer: entry[1].chomp, deck_id: 1)
   card.save
 end
-
 Deck.create(name: "Beatlemania")

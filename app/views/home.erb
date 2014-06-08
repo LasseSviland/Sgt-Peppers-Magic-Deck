@@ -1,3 +1,5 @@
-	<def class="game">
-		<p>game content goes here!!</p>
-	</def>
+<div class="game">
+	<% @decks.each do |deck| %>
+	<a href="/round/<%= deck.id %>/new"><%= deck.name %></a>
+	<% end %>
+</div>

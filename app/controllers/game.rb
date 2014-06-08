@@ -28,7 +28,7 @@ end
 get '/round/:round_id/?' do
 	@round = Round.find_by(id: params[:round_id])
 	if @round.finished
-		return erb :"round_stats"
+		return erb :round_stats
 	else
 		guesses = Guess.where(round: params[:round_id], guessed: false).order('tries ASC')
 #		@guess_count = Guess.where(round: params[:round_id]).length
@@ -49,7 +49,15 @@ post '/round/:round_id/?' do
 		@guess.tries += 1
 	end
 	@guess.save
-	erb :answer
+	@guesses = Guess.where(round: params[:round_id], guessed:false).length
+
+	if @guesses > 0
+		erb :answer
+	else
+		@round.finished = true
+		@round.save
+		redirect "/round/#{@round.id}"
+	end
 end
 
 

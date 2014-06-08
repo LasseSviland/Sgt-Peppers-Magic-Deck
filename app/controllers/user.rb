@@ -53,11 +53,13 @@ end
 
 
 get '/profile/?' do
+  return redirect "/login" unless logged_in?
   @title="profile"
   @header="profile"
   erb :profile
 end
 get '/stats/?' do
+  return redirect "/login" unless logged_in?
   @title="stats"
   @header="stats"
   erb :stats

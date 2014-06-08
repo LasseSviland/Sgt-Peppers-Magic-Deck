@@ -1,0 +1,12 @@
+<% if @unfinished_rounds.length == 0  %>
+  <a href="/round/<%=@deck.id%>/new" >New game!</a>
+<% else %>
+<h3>Unfinished games: </h3>
+  <a href="/round/<%=@unfinished_rounds.first.id%>" >You have to finish this game before you start a new game! </a>
+<% end %>
+<% if @finished_rounds.length != 0  %>
+<h3>Old games:</h3>
+<% @finished_rounds.each_with_index do |round,index|%>
+  <%= index+1 %>) You guessed all the <%=Guess.where(round:round).length%> questions with <%= Guess.where(round:round).sum('tries')%> tries.</br>
+<% end %>
+<% end %>

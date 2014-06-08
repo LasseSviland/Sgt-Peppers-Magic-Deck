@@ -1,20 +1,28 @@
 get '/' do
+	return redirect "/login" unless logged_in?
   @title="Play"
   @header="Play"
   @decks = Deck.all
   erb :home
 end
-
+get '/round/:deck_id/rounds/?' do
+	return redirect "/login" unless logged_in?
+	@deck = Deck.find_by(id: params[:deck_id])
+	@unfinished_rounds = Round.where(deck:params[:deck_id], user:current_user, finished: false)
+	@finished_rounds = Round.where(deck:params[:deck_id], user:current_user, finished: true)
+	erb :rounds
+end
 
 get '/round/:deck_id/new/?' do
+	return redirect "/login" unless logged_in?
 	@title="New game"
-	round = Round.find_by(deck:params[:deck_id], user:current_user)
-	if round
-		return redirect "/round/#{round.id}"
+	unfinished_rounds = Round.where(deck:params[:deck_id], user:current_user, finished: false)
+	if unfinished_rounds.length > 0
+		return redirect "/round/#{params[:deck_id]}/rounds"
 	else
 		deck = Deck.find_by(id: params[:deck_id])
 		user = current_user
-		card = Card.where(deck: deck)
+		card = Card.where(deck: deck).sample(2)
 		round = Round.create(deck: deck, user:user)
 		card.each do |ca|
 			Guess.create(round:round, card:ca, guessed: false)
@@ -26,9 +34,10 @@ end
 
 
 get '/round/:round_id/?' do
+	return redirect "/login" unless logged_in?
 	@round = Round.find_by(id: params[:round_id])
 	if @round.finished
-		return erb :round_stats
+		return redirect "/round/#{@round.deck.id}/rounds/"
 	else
 		guesses = Guess.where(round: params[:round_id], guessed: false).order('tries ASC')
 #		@guess_count = Guess.where(round: params[:round_id]).length
@@ -38,11 +47,12 @@ get '/round/:round_id/?' do
 end
 
 post '/round/:round_id/?' do
+	return redirect "/login" unless logged_in?
 	user_guess = params[:guess]
 	card = Card.find_by(id: params[:card_id])
 	@round = Round.find_by(id:params[:round_id])
 	@guess = Guess.find_by(round: params[:round_id], card: card)
-	if user_guess == card.answer
+	if user_guess.downcase == card.answer.downcase
 		@guess.guessed = true
 		@guess.tries += 1
 	else
@@ -50,7 +60,6 @@ post '/round/:round_id/?' do
 	end
 	@guess.save
 	@guesses = Guess.where(round: params[:round_id], guessed:false).length
-
 	if @guesses > 0
 		erb :answer
 	else

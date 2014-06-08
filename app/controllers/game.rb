@@ -22,7 +22,7 @@ get '/round/:deck_id/new/?' do
 	else
 		deck = Deck.find_by(id: params[:deck_id])
 		user = current_user
-		card = Card.where(deck: deck).sample(10)
+		card = Card.where(deck: deck).sample(5)
 		round = Round.create(deck: deck, user:user)
 		card.each do |ca|
 			Guess.create(round:round, card:ca, guessed: false)

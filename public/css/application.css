@@ -85,9 +85,9 @@ margin-top: 20px;
 @keyframes rainbow_text 					{ 0% {color:#FF0000;} 17% {color:#FF7F00;} 34% {color:#FFFF00;} 51% {color:#00FF00;} 65% {color:#0000FF;} 78% {color:#4B0082;} 90% {color:#8F00FF;} 100% {color:#FF0000;}}
 .rainbow_background {
 	position:relative;
-	animation:rainbow_background 100s infinite;
-	-moz-animation:rainbow_background 100s infinite;
-	-webkit-animation:rainbow_background 100s infinite;
+	animation:rainbow_background 10s infinite;
+	-moz-animation:rainbow_background 10s infinite;
+	-webkit-animation:rainbow_background 10s infinite;
 }
 @-webkit-keyframes rainbow_background 	{ 0% {background:#FF0000;} 17% {background:#FF7F00;} 34% {background:#FFFF00;} 51% {background:#00FF00;} 65% {background:#0000FF;} 78% {background:#4B0082;} 90% {background:#8F00FF;} 100% {background:#FF0000;}}
 @-moz-keyframes rainbow_background 			{ 0% {background:#FF0000;} 17% {background:#FF7F00;} 34% {background:#FFFF00;} 51% {background:#00FF00;} 65% {background:#0000FF;} 78% {background:#4B0082;} 90% {background:#8F00FF;} 100% {background:#FF0000;}}

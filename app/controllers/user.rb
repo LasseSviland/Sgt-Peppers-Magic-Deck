@@ -14,7 +14,7 @@ post '/login/?' do
   password = params[:password]
   @user = User.authenticate(username, password)
   if @user
-    session[:user_id] = @user.username
+    session[:user_id] = @user.id
     redirect '/'
   else
     @error_message = "Wrong login"
@@ -35,7 +35,7 @@ post '/register/?' do
   password = params[:password]
   @user = User.new(username: username,password_hash: password)
   if @user.save
-    session[:user_id] = @user.username
+    session[:user_id] = @user.id
     return redirect '/'
   else
     @error_message = @user.errors.messages

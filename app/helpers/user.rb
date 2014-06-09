@@ -3,7 +3,7 @@ helpers do
   # Replace with code that works with your application
   def current_user
     if session[:user_id]
-      @current_user ||= User.find_by_username(session[:user_id])
+      @current_user ||= User.find_by(id:session[:user_id])
     end
   end
 
